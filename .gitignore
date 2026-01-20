@@ -1,0 +1,85 @@
+# ===== OS / Editor =====
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== Python bytecode / caches =====
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+# ===== Virtual envs =====
+.venv/
+venv/
+env/
+ENV/
+pip-wheel-metadata/
+
+# ===== Packaging / build =====
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-log.txt
+
+# ===== Jupyter =====
+.ipynb_checkpoints/
+
+# ===== Data / outputs =====
+data/
+datasets/
+*.csv
+*.tsv
+*.parquet
+*.feather
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.hdf5
+*.npz
+*.npy
+
+# ===== Models / artifacts =====
+models/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# ===== Logs =====
+logs/
+*.log
+
+# ===== Env / secrets =====
+.env
+.env.*
+*.env
+secrets/
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+
+# ===== Coverage =====
+.coverage
+htmlcov/
+coverage.xml
+
+# ===== Streamlit =====
+.streamlit/secrets.toml
+
+# ===== Misc =====
+*.tmp
+*.bak
