@@ -18,9 +18,8 @@ if "train_log" not in st.session_state:
     st.session_state.train_log = None
 
 
-# ----------------------------
-# Visual step-by-step helpers (2 dice per HIT)
-# ----------------------------
+
+
 def _roll(rng: np.random.Generator) -> int:
     return int(rng.integers(1, 7))
 
@@ -159,7 +158,7 @@ with tab_train:
     with c4:
         eps_start = st.slider("ε start", 0.0, 1.0, 1.0, step=0.05)
     with c5:
-        eps_end = st.slider("ε end", 0.0, 1.0, 0.05, step=0.05)
+        eps_end = st.slider("ε end", 0.0, 1.0, 0.01, step=0.01)
 
     c6, c7 = st.columns(2)
     with c6:
@@ -174,7 +173,7 @@ with tab_train:
     with c7:
         seed = st.number_input("Seed", 0, 10_000, 42, step=1)
 
-    if st.button("🚀 Train Q-Learning", type="primary"):
+    if st.button("Train Q-Learning", type="primary"):
         cfg = TrainConfig(
             episodes=int(episodes),
             alpha=float(alpha),
@@ -231,13 +230,13 @@ with tab_eval:
 # Baseline Test
 # ----------------------------
 with tab_baseline:
-    st.subheader("🧪 Baseline Strategy Test")
+    st.subheader("Baseline Strategy Test")
     st.caption("Simple strategies: Hit until threshold, then STAND")
     
     n_games_baseline = st.number_input("Games", 1000, 100_000, 20_000, step=1000, key="baseline_games")
     seed_baseline = st.number_input("Seed", 0, 10_000, 456, step=1, key="baseline_seed")
     
-    if st.button("🚀 Test All Baselines"):
+    if st.button("Test All Baselines"):
         results = []
         for threshold in [14, 15, 16, 17, 18]:
             metrics = evaluate_simple_strategy(
