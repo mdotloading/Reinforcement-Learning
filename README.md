@@ -1,71 +1,70 @@
-# Dicejack – Q-Learning Reinforcement Learning Projekt
+# Dicejack – Q-Learning Reinforcement Learning Project
 
-Dieses Projekt implementiert einen Reinforcement-Learning-Agenten (Q-Learning) für ein vereinfachtes, würfelbasiertes Blackjack-Spiel namens **Dicejack**.  
-Der Agent lernt durch Interaktion mit der Umgebung, wann es sinnvoll ist zu *HIT* (weiter würfeln) oder *STAND* (stehen bleiben).
+This project implements Q-Learning for a Blackjack-Variant called **Dicejack**.  
+Agent learns when to *HIT* or *STAND* by repeatedly interacting with the environment without any prior knowledge thereof.
 
-Das Projekt dient als kompakte Demonstration zentraler RL-Konzepte wie:
+Project demonstrates basic Reinforcement Learning concepts like:
 - Q-Learning
 - Temporal-Difference Learning
 - Exploration vs. Exploitation
-- Policy-Visualisierung
+- Policy-Visualisation
 
 ---
 
-## Spielidee
+## Idea
 
-Dicejack ist eine vereinfachte Variante von Blackjack mit sechsseitigen Würfeln.
 
-- Spieler und Dealer starten jeweils mit zwei Würfen.
-- Der Spieler sieht seine eigene Summe und den ersten Würfel des Dealers.
-- Aktionen:
-  - **HIT** → weiterer Würfel
-  - **STAND** → Runde beenden
-- Dealer würfelt automatisch bis mindestens 17.
-- Über 21 → sofortiger Bust.
 
-Belohnungen:
-- Gewinn: +1  
-- Verlust: −1  
-- Unentschieden: 0  
+- Agent and dealer play with 2 dice each
+- First visible state is own sum of 2 dice and dealers sum
+- Actions:
+  - **HIT** → roll again
+  - **STAND** → let the dealer play
+- dealer has to hit until 17
+- going over 21 → bust
+
+Rewards
+- Win: +1  
+- Lose: −1  
+- Draw: 0  
 
 ---
 
-## Projektstruktur
+## Structure
 
 ## dicejack_env.py
-Implementiert die vollständige Spielmechanik:
-- Zustandsdefinition `(player_sum, dealer_up)`
-- Aktionslogik
+Implements the entire environment
+- State `(player_sum, dealer_up)`
+- Action Logic
 - Dealer-Policy
-- Terminalbedingungen
-- Reward-Berechnung
+- Reward-Handling
 
 ## qlearning.py
-Enthält:
-- Q-Tabelle
-- Q-Learning-Update-Regel
-- ε-greedy-Strategie
-- Trainings- und Evaluationslogik
+Contains:
+- Q-Table
+- Q-Learning-Updates
+- ε-greedy-Strategy 
+
 
 ## config.py
-Zentrale Hyperparameter:
-- Lernrate (α)
-- Diskontfaktor (γ)
-- Anzahl Episoden
+Hyperparameters:
+- Learning Rate (α)
+- Discount Factor (γ)
+- Number of Episodes
 - Epsilon-Decay
 
 ## app.py
-Interaktive Streamlit-Oberfläche mit:
-- Trainings-Tab
-- Evaluations-Tab
+Interactive Streamlit UI:
+- Training-Tab
+- Evaluation-Tab
 - Policy-Heatmap
-- Live-Spielmodus
+- Live-Gameplay after Training
 
 ---
 
 ###  Installation
 
-## Repository klonen
+## Clone repository
 ```bash
 git clone https://github.com/mdotloading/Reinforcement-Learning
 cd Reinforcement-Learning
@@ -80,7 +79,7 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
-## Anwendung starten
+## Start Application
 
 ```bash
 streamlit run app.py
