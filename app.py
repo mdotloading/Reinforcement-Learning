@@ -216,7 +216,7 @@ with tab_eval:
     else:
         n_games = st.number_input("Games", 1000, 200_000, 20_000, step=1000)
         seed_eval = st.number_input("Eval Seed", 0, 10_000, 123, step=1)
-        if st.button("📏 Evaluate"):
+        if st.button("Evaluate"):
             metrics = evaluate_policy(st.session_state.q, n_games=int(n_games), seed=int(seed_eval))
             c1, c2, c3, c4 = st.columns(4)
             c1.metric("Win rate", f"{metrics['win_rate']*100:.2f}%")
@@ -319,7 +319,7 @@ with tab_play:
     seed_play = st.number_input("Seed", 0, 10_000, 7, step=1, key="seed_play")
 
     if mode == "Du vs Dealer (Dealer Schritt für Schritt)":
-        if "g_you" not in st.session_state or st.button("🎲 New game", key="new_you"):
+        if "g_you" not in st.session_state or st.button("New game", key="new_you"):
             st.session_state.g_you = new_visual_game(seed=int(seed_play), player_label="you")
             st.rerun()
 
