@@ -32,3 +32,57 @@ Belohnungen:
 
 ## Projektstruktur
 
+## dicejack_env.py
+Implementiert die vollständige Spielmechanik:
+- Zustandsdefinition `(player_sum, dealer_up)`
+- Aktionslogik
+- Dealer-Policy
+- Terminalbedingungen
+- Reward-Berechnung
+
+## qlearning.py
+Enthält:
+- Q-Tabelle
+- Q-Learning-Update-Regel
+- ε-greedy-Strategie
+- Trainings- und Evaluationslogik
+
+## config.py
+Zentrale Hyperparameter:
+- Lernrate (α)
+- Diskontfaktor (γ)
+- Anzahl Episoden
+- Epsilon-Decay
+
+## app.py
+Interaktive Streamlit-Oberfläche mit:
+- Trainings-Tab
+- Evaluations-Tab
+- Policy-Heatmap
+- Live-Spielmodus
+
+---
+
+###  Installation
+
+## Repository klonen
+```bash
+git clone https://github.com/mdotloading/Reinforcement-Learning
+cd Reinforcement-Learning
+```
+
+```bash
+python -m venv venv
+.\venv\Scripts\activate
+```
+
+```bash
+pip install -r requirements.txt
+```
+
+## Anwendung starten
+
+```bash
+streamlit run app.py
+```
+
